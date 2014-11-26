@@ -1,0 +1,43 @@
+{
+  "manifest_version": 2,
+  "name": "Better Google Tasks",
+  "short_name": "Google Tasks",
+  "description": "Have a gmail account? Thought so! You can now use Google Tasks in a much nicer way.",
+  "version": "1.0.1",
+  "content_scripts": [
+    {
+      "matches": ["*://mail.google.com/tasks/canvas*"],
+      "js": ["js/script.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "Better Google Tasks",
+    "default_icon": "img/icon-16.png"
+  },
+  "web_accessible_resources": [
+    "css/styles.css",
+    "font/2eS1tP1E7XMJQjkhdN3itVKPGs1ZzpMvnHX-7fPOuAc.woff2",
+    "font/fxnGy8eAqq_GyLly_a7nxlKPGs1ZzpMvnHX-7fPOuAc.woff2",
+    "font/kbq7FPeQCXis0Edyi-YOa1KPGs1ZzpMvnHX-7fPOuAc.woff2",
+    "font/mE8TUCo3Ct6cvn2PsTuRYVKPGs1ZzpMvnHX-7fPOuAc.woff2",
+    "font/SMyFnaT9pyH0nwH2jtNCVFKPGs1ZzpMvnHX-7fPOuAc.woff2",
+    "font/vqlxvKR8WJ80oGafUBSU3lKPGs1ZzpMvnHX-7fPOuAc.woff2",
+    "font/YHRUvkKfjyY1OOFvVZ97pVKPGs1ZzpMvnHX-7fPOuAc.woff2",
+    "img/close.svg",
+    "img/date.svg",
+    "img/down.svg",
+    "img/favicon.ico",
+    "img/icon-16.png",
+    "img/sprites.png",
+    "img/tasks.png"
+  ],
+  "icons" : {
+    "16" : "img/icon-16.png",
+    "48" : "img/icon-48.png",
+    "128" : "img/icon-128.png"
+  }
+}
