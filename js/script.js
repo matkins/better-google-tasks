@@ -1,7 +1,16 @@
 // Change favicon
 var linkTags = document.getElementsByTagName('link');
 linkTags[0].href = chrome.extension.getURL('img/icon-16.png');
+linkTags[0].type = 'image/png';
+linkTags[0].setAttribute('sizes','16x16');
 linkTags[1].href = chrome.extension.getURL('img/favicon.ico');
+var highResFavicon = document.createElement('link');
+highResFavicon.rel = 'icon';
+highResFavicon.type = 'image/png';
+highResFavicon.setAttribute('sizes','32x32');
+highResFavicon.href = chrome.extension.getURL('img/icon-32.png');
+document.head.appendChild(highResFavicon);
+
 // Add styles to tasks iframe
 var link = document.createElement('link');
 link.href= chrome.extension.getURL('css/styles.css');
