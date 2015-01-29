@@ -328,6 +328,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   position: relative;
 }
 
+.z .important .o,
+.z .important .k,
+.z .important .p,
+.z .important .i,
+.z .important .Mb,
+.z .important .R {
+  border-color: red !important;
+  background-color: red;
+}
+
 .vc .o:before,.vc .k:before,.vc .p:before,.vc .i:before,.vc .Mb:before, .vc .R:before {
   content: "";
   display: block;

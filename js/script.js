@@ -16,13 +16,33 @@ var link = document.createElement('link');
 link.href= chrome.extension.getURL('css/styles.css');
 link.rel = 'stylesheet';
 link.type = 'text/css';
-var iframeDocument = document.getElementsByTagName('iframe')[0].contentDocument;
-iframeDocument.head.appendChild(link);
-// Change help link destination
-setTimeout(function(){
-  var helpLink = iframeDocument.getElementById(':1.he');
-  var nav = helpLink.parentNode;
-  nav.removeChild(helpLink);
+var iframe = document.getElementsByTagName('iframe')[0];
+iframe.contentDocument.head.appendChild(link);
+
+// Function to add and remove important class
+function markImportant(row){
+  var r = $(row);
+  var text = r.find('div.d').html();
+  if(text.match(/^!!/)){
+    r.addClass('important');
+  } else {
+    r.removeClass('important');
+  }
+}
+
+iframe.onload = function(){
+  // Change help link destination
+  var doc = $(iframe).contents();
+  var helpLink = doc.find('#\\:1\\.he');
+  var nav = helpLink.parent();
+  helpLink.remove();
   var newHelpLink = "<a href='http://richwells.me/better-google-tasks/' target='_blank' class='goog-flat-button w goog-inline-block' role='button' aria-hidden='true' style='text-decoration:none'>Help</a>";
-  nav.innerHTML = newHelpLink + nav.innerHTML;
-},3000);
+  nav.prepend(newHelpLink);
+  var taskRows = doc.find('table.z tr.r');
+  taskRows.each(function(idx,row){
+    markImportant(row);
+  });
+  doc.find('table.z').on('input', 'tr.r div.d', function(){
+    markImportant($(this).parents('tr.r'));
+  });
+};
