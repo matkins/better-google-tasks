@@ -30,6 +30,12 @@ function markImportant(row){
   }
 }
 
+function markAllImportant(doc){
+  doc.find('table.z tr.r').each(function(idx,row){
+    markImportant(row);
+  });
+}
+
 iframe.onload = function(){
   // Change help link destination
   var doc = $(iframe).contents();
@@ -38,11 +44,13 @@ iframe.onload = function(){
   helpLink.remove();
   var newHelpLink = "<a href='http://richwells.me/better-google-tasks/' target='_blank' class='goog-flat-button w goog-inline-block' role='button' aria-hidden='true' style='text-decoration:none'>Help</a>";
   nav.prepend(newHelpLink);
-  var taskRows = doc.find('table.z tr.r');
-  taskRows.each(function(idx,row){
-    markImportant(row);
-  });
-  doc.find('table.z').on('input', 'tr.r div.d', function(){
+  markAllImportant(doc);
+  doc.on('input', 'table.z tr.r div.d', function(){
     markImportant($(this).parents('tr.r'));
+  });
+  doc.bind('DOMNodeInserted', function(e) {
+    if(e.target.tagName == 'TABLE'){
+      markAllImportant(doc);
+    }
   });
 };
