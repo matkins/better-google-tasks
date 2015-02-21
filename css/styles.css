@@ -321,21 +321,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   color: #000
 }
 
+
+.important .o,
+.important .k,
+.important .p,
+.important .i,
+.important .Mb,
+.important .R {
+  border-color: #F55E5E !important;
+  background-color: #F54E4E;
+}
+
 .vc .o,.vc .k,.vc .p,.vc .i,.vc .Mb, .vc .R {
   border-color: #D0ECB1 !important;
   background-color: #D0ECB1;
   overflow: visible;
   position: relative;
-}
-
-.z .important .o,
-.z .important .k,
-.z .important .p,
-.z .important .i,
-.z .important .Mb,
-.z .important .R {
-  border-color: red !important;
-  background-color: red;
 }
 
 .vc .o:before,.vc .k:before,.vc .p:before,.vc .i:before,.vc .Mb:before, .vc .R:before {

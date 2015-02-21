@@ -48,9 +48,11 @@ iframe.onload = function(){
   doc.on('input', 'table.z tr.r div.d', function(){
     markImportant($(this).parents('tr.r'));
   });
-  doc.bind('DOMNodeInserted', function(e) {
+  doc.on('DOMNodeInserted', function(e) {
     if(e.target.tagName == 'TABLE'){
-      markAllImportant(doc);
+      $(e.target).find('tr.r').each(function(idx,row){
+        markImportant(row);
+      });
     }
   });
 };
