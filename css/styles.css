@@ -241,9 +241,10 @@ margin: 2px 7px 0 0;
 }
 
 .ib {
-  font-size: 10pt;
+  font-size: 17px;
   color: #999;
-  padding: 2px 0 0 4px
+  padding: 2px 0 0 4px;
+  margin: 30px;
 }
 
 .Vb .u, .a.u {
@@ -319,17 +320,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .Ob {
   color: #000
-}
-
-
-.important .o,
-.important .k,
-.important .p,
-.important .i,
-.important .Mb,
-.important .R {
-  border-color: #F55E5E !important;
-  background-color: #F54E4E;
 }
 
 .vc .o,.vc .k,.vc .p,.vc .i,.vc .Mb, .vc .R {
@@ -780,7 +770,7 @@ width: 300px !important;
 margin: 0;
 padding: 0 0 10px;
 outline: none;
-max-width: 200px;
+max-width: 213px;
 box-shadow: 3px 4px 0px rgba(0, 0, 0, 0.3);
 border-radius: 0px;
 height: 370px;
@@ -819,7 +809,7 @@ padding: 8px 10px 8px;
 list-style: none;
 vertical-align: middle;
 outline: none;
-width: 133px;
+width: 193px;
 border-bottom: 3px solid #BDC5D1 !important;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -1340,6 +1330,19 @@ height: 3px;
 .t,.A,.w {
   float: right
 }
+/* Make all nav bar icons float left and give a padding bottom on small screens */
+@media (max-width:900px) {
+  .t,.A {
+    float: left;
+  }
+  .gb .goog-toolbar {
+    padding-bottom:0 !important;
+  }
+  .gb .goog-toolbar-button {
+    margin-bottom:10px;
+  }
+}
+
 
 .Zb {
   vertical-align: top;
@@ -1729,9 +1732,18 @@ line-height: 1.6;
   transition: all 0.3s ease;
   background: rgba(255,255,255,0.2);
   font-family: 'Roboto', sans-serif;
-  line-height: 1;
+  line-height: 1.5;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 10px;
+  -webkit-font-smoothing: antialiased;
 }
-
+@media (max-width:960px) {
+  .gb .goog-toolbar-button-inner-box {
+    padding: 4px;
+  }
+}
 .o.a.v.K:hover{
   background-image:url(../img/dots.svg)!important;
   background-repeat:no-repeat;
@@ -1766,7 +1778,6 @@ line-height: 1.6;
 .goog-toolbar div:nth-child(19),
 .goog-toolbar div:nth-child(20),
 .goog-toolbar div:nth-child(21),
-.goog-toolbar div:nth-child(22),
 .goog-toolbar div:nth-child(25),
 .goog-toolbar div:nth-child(26),
 .zb,
@@ -1789,7 +1800,7 @@ line-height: 1.6;
 .f.hc {
 position: absolute;
 top: 89px;
-left: 170px;
+left: 230px;
 }
 
 ::selection {
@@ -1938,4 +1949,108 @@ left: 170px;
   .lc  {
     padding: 30px 370px 30px 30px;
   }
+}
+
+/* !! Styling Important tasks */
+
+.important .o, .important .k, .important .p, .important .i, .important .Mb, .important .R {
+  border-color: #CAE9F7 !important;
+  background-color: #CAE9F7;
+}
+.important .o:before, .important .k:before, .important .p:before, .important .i:before, .important .Mb:before, .important .R:before {
+  background: #CAE9F7;
+}
+.important .o {
+  border-left: 8px solid #2FAEE0 !important;
+  border-top: 0;
+  border-bottom: 0;
+}
+.important .o:before {
+  background: none;
+}
+.important .j, .important .Y, .important .j a.hb {
+  color: rgba(0,0,0,0.45) !important;
+}
+
+/* Remove text on buttons (using svg) */
+.e {
+  display:none !important;
+}
+
+/* Add icons to toolbar */
+.goog-toolbar .goog-toolbar-button-inner-box {
+  background-repeat: no-repeat; 
+}
+.goog-toolbar .goog-toolbar-button-inner-box {
+  padding-left: 33px;
+}
+.goog-toolbar .goog-toolbar-button-inner-box {
+  background-position: 9px; 
+
+}
+/* Trash icon */
+.goog-toolbar div:nth-child(1) .goog-toolbar-button-inner-box {
+  background-image:url(../img/trash.svg);
+}
+.goog-toolbar div:nth-child(1) .goog-toolbar-button-inner-box {
+  width:35px;
+}
+
+/* Refresh icon */
+.goog-toolbar div:nth-child(24) .goog-toolbar-button-inner-box {
+  background-image:url(../img/refresh.svg);
+  width:55px;
+}
+.goog-toolbar div:nth-child(24) .goog-toolbar-button-inner-box {
+  width:55px;
+}
+/* clear Completed icon */
+.goog-toolbar div:nth-child(10) .goog-toolbar-button-inner-box {
+  background-image:url(../img/clear.svg);
+}
+.goog-toolbar div:nth-child(10) .goog-toolbar-button-inner-box {
+  width:40px;
+}
+/* My order icon */
+.goog-toolbar div:nth-child(7) .goog-toolbar-button-inner-box {
+  background-image:url(../img/my-order.svg);
+}
+.goog-toolbar div:nth-child(7) .goog-toolbar-button-inner-box {
+  width: 60px;
+}
+/* Date */
+.goog-toolbar div:nth-child(5) .goog-toolbar-button-inner-box {
+  background-image:url(../img/date-order.svg);
+}
+.goog-toolbar div:nth-child(5) .goog-toolbar-button-inner-box {
+  width:70px;
+}
+/* History */
+.goog-toolbar div:nth-child(3) .goog-toolbar-button-inner-box {
+  background-image:url(../img/history.svg);
+}
+.goog-toolbar div:nth-child(3) .goog-toolbar-button-inner-box {
+  width:47px;
+}
+/* Delete */
+.goog-toolbar div:nth-child(22) .goog-toolbar-button-inner-box {
+  background-image:url(../img/delete.svg);
+  padding-left: 55px;
+  width:46px;
+}
+.goog-toolbar div:nth-child(22) {
+  display:block !important;
+  float: left;
+}
+
+/* undelete icon (on trash page) */
+.xb {
+  background:url(../img/undelete.svg);
+  border: 2px solid #ccc;border-radius: 4px;
+}
+.xb {
+  border: 2px solid #ccc;
+}
+.xb {
+  border-radius: 4px;
 }
