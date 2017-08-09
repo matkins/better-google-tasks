@@ -3,7 +3,7 @@
   "name": "Better Google Tasks",
   "short_name": "Google Tasks",
   "description": "Have a gmail account? Thought so! You can now use Google Tasks in a much nicer way.",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "content_scripts": [
     {
       "matches": ["*://mail.google.com/tasks/canvas*"],
